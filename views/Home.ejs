@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=title%>
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="title">
+        <h1>toDoList</h1>
+    </div>
+    <div id="body-section">
+       
+    
+        <div id="input-section">
+            <form action="/create-form" method="post">
+              
+              
+           <div id="inner-section">
+            <!-- <label class="text" for="cotegoery">Enter Text</label> -->
+            <textarea class="inputName"  name="name" cols="30" rows="10" placeholder="Enter Text">Enter Text</textarea>
+            <!-- <label class="date" for="cotegoery">Date</label> -->
+            <input class="inputPhone" type="date" name="date" value="dd/mm/yyyy" required >
+    
+   <!-- categary porstion here -->
+
+    <div >
+        <label for="cotegoery">COTEGORY</label>
+        <select class="cote" name="cotegoery" class="cotegoery">
+            <!-- it is for Personal -->
+            <option value="Personal">Personal</option>
+             <!-- it is for office --> 
+            <option value="Office">Office</option>
+             <!-- it is for school -->
+            <option value="School">School</option>
+             <!-- it is for cleaning -->
+            <option value="Cleaning">Cleaning</option>
+        </select>
+    </div>
+           </div>
+               
+                <button type="submit">Add Info</button>
+            </form>
+        
+        
+
+    
+    <hr>
+    
+    
+    
+        <div id="middle-section">
+          
+         
+            
+                <% for (let i of contact) { %> 
+        
+                   <div id="display-block">
+                    <div id="cotegoery">
+                        <%= i.cotegoery %>
+        
+                    </div>
+                    <div id="name">
+                        <%= i.name %>
+                    </div>
+                    <div id="phone">
+                        <%= i.phone %>
+        
+                    </div>
+                    <!-- <div id="cotegoery">
+                        <%= i.cotegoery %>
+        
+                    </div> -->
+            
+            <div class="delete-button">
+                <a href="/delete-contact/?id=<%=i.id%>">
+                    Delete
+                </a>
+            </div>
+    
+                   </div>
+                   
+             <hr>
+        
+            <% } %>
+            
+        
+        
+             
+               <hr>
+         
+        </div>
+       
+                   
+     
+    </div>
+    
+   
+    <script type="text/javascript" src="/js/Home.js"></script>
+</body>
+</html>
